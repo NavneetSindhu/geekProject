@@ -1,0 +1,35 @@
+{% extends "base.html" %} 
+{% block content %}
+
+<div class="container mt-5">
+    <h2 class="text-center mb-4">Skin Disease Diagnosis Dashboard</h2>
+    <p class="text-center mb-5">Upload an image to diagnose potential skin conditions with confidence and expert advice.</p>
+
+    <div class="card p-4 shadow-sm">
+        <form id="upload-file" method="post" enctype="multipart/form-data">
+            <div class="form-group text-center">
+                <label for="imageUpload" class="upload-label">
+                    Choose Image
+                </label>
+                <input type="file" name="file" id="imageUpload" accept=".png, .jpg, .jpeg">
+            </div>
+        </form>
+
+        <div class="image-section text-center" style="display:none;">
+            <div class="img-preview mb-4">
+                <div id="imagePreview"></div>
+            </div>
+            <button type="button" class="btn btn-success btn-lg mb-4" id="btn-predict">Predict Now</button>
+        </div>
+
+        <div class="loader mx-auto" style="display:none;"></div>
+
+        <div id="result-card" class="result-card card p-4 shadow-sm" style="display:none;">
+            <h3 class="text-center" id="disease-name"></h3>
+            <p class="text-center" id="confidence"></p>
+            <p id="advice" class="text-muted"></p>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
